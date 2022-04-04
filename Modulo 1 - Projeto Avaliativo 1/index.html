@@ -18,13 +18,13 @@
         <label>
             <div id="formularioInput">
                 Inserir item na lista:
-                <input id="nomeProduto" type="text" placeholder="Digite o nome do produto">
+                <input id="nome" type="text" placeholder="Digite o nome do produto">
             </div>
         </label>
         
         <div id="formularioBotoes">
 
-            <button id="btnAdd">Adicionar</button>
+            <button id="btnADD">Adicionar</button>
             <button id="btnDelAll">Deletar Todos</button>
 
             
@@ -32,9 +32,10 @@
     </div>
 
     <div id="divListaItens">
-        <div id="listaItens">
-            <ul id="ul"></ul>
-        </div>
+        <ul id="listaItens">
+            <li><input type="checkbox"> <button id="btnDelItem">x</button></li>
+            
+        </ul>
 
         <div id="divTotalCompras">
             <h3>Total das Compras</h3>
