@@ -1,0 +1,23 @@
+body {
+    display: block;
+    text-align: center;
+}
+
+/* Header e H1 */
+header {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+/* Formulário */
+
+#formulario {
+    display: flex;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}

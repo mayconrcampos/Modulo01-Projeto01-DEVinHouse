@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras - Controle</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Controle - Lista de Compras</h1>
+    </header>
+
+    
+    <div id="formulario">
+
+        <label>
+            <div id="formularioInput">
+                Inserir item na lista:
+                <input id="nomeProduto" type="text" placeholder="Digite o nome do produto">
+            </div>
+        </label>
+        
+        <div id="formularioBotoes">
+
+            <button id="btnAdd">Adicionar</button>
+            <button id="btnDelAll">Deletar Todos</button>
+        </div>
+    </div>
+
+    <div id="divListaItens">
+        <div id="listaItens">
+            <ul id="ul"></ul>
+        </div>
+
+        <div id="divTotalCompras">
+            <h3>Total das Compras</h3>
+            <h1 id="total"></h1>
+            
+        </div>
+    </div>
+
+    
+    
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
