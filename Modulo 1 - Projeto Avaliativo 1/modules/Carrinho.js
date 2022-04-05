@@ -73,12 +73,19 @@ export class Carrinho {
 
     carregaLista(){
         this.totalCompras = 0
+        var h2 = document.createElement("h2")
+
         if(this.lista.length == 0){
-            this.ul.style.display = "none"
+            this.ul.innerHTML = ""
+            h2.innerHTML = "Vazio"
+            this.ul.appendChild(h2)
         }else{
             this.ul.innerHTML = ""
             
+            h2.innerHTML = "Lista de Compras"
 
+            this.ul.appendChild(h2)
+            
             this.lista.forEach((item, indice) => {
                 this.totalCompras += item.valor
                 const btnDelItem = document.createElement("button")
@@ -90,7 +97,7 @@ export class Carrinho {
                 const li = document.createElement("li")
                 li.id = "lista"
 
-                li.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
+                li.onclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
 
                 li.innerHTML = `<input id="check" type="checkbox" ${item.status ? "checked" : ""} disabled> ${item.nome}`
 
@@ -101,7 +108,7 @@ export class Carrinho {
             
             })
             if(this.totalCompras > 0) {
-                this.total.innerHTML = "Total (R$)"+this.totalCompras.toFixed(2)
+                this.total.innerHTML = "R$ "+this.totalCompras.toFixed(2)
             }
         }
         
@@ -111,14 +118,19 @@ export class Carrinho {
         if(status == false){
             console.log("debug"+nome, status, valor, i)
             valor = window.prompt("Digite o valor (R$)")
-            var produto = {
-                "nome": nome,
-                "status": "checked",
-                "valor": Number(valor)
+            if(!isNaN(valor) && valor > 0){
+                var produto = {
+                    "nome": nome,
+                    "status": "checked",
+                    "valor": Number(valor)
+                }
+                this.lista.splice(i, 1, produto)
+                this.salvaDB()
+                this.carregaLista()
+            }else{
+                alert("ERRO! Valor inválido")
             }
-            this.lista.splice(i, 1, produto)
-            this.salvaDB()
-            this.carregaLista()
+            
         }else{
             console.log("debug"+nome, status, valor, i)
             var produto = {

@@ -1,15 +1,28 @@
 body {
     display: block;
-    text-align: center;
+    background-image: url("../img/fundo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 
 /* Header e H1 */
 header {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 20px;
 }
 
 header h1 {
+    width: 80%;
+    color: white;
     text-align: center;
+}
+
+header img {
+    width: 300px;
+    margin-right: 10px;
 }
 
 /* Formulário */
@@ -26,27 +39,32 @@ header h1 {
     width: 60%;
     margin-left: 30px;
     padding: 10px;
+    
 }
 
 #formularioInput input {
+    
     margin: auto;
-    width: 90%;
+    width: 70%;
     text-align: center;
-    padding: 3px;
+    padding: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: xx-large;
+    font-size: x-large;
     border-radius: 5px;
 }
 
 #labelinput {
-    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    color: white;
+    margin-left: 15%;
     width: 90%;
     text-align: left;
     padding: 5px;
 }
 
 #formularioBotoes {
-
+    text-align: left;
     height: 100px;
     padding: 10px;
     display: flex;
@@ -54,19 +72,27 @@ header h1 {
 
 #btnADD {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: x-large;
-    padding: 5px;
-    margin-top: 45px;
-    margin-bottom: 5px;
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    background-color: #181a8e;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 15px;
     margin-right: 10px;
+    border-radius: 8px;
 }
 
 #btnDelAll {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: x-large;
-    padding: 5px;
-    margin-top: 45px;
-    margin-bottom: 5px;
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    background-color: #181a8e;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
 }
 
 /* Div Lista de Itens */
@@ -78,13 +104,20 @@ header h1 {
 }
 
 #listaItens {
+    color: aliceblue;
+    background-color: #282c34;
+    border-radius: 8px;
     text-align: left;
     margin: auto;
-    width: 40%;
-    padding: 20px;
+    width: 50%;
+    padding: 40px;
     margin-top: 10px;
+
 }
 #divTotalCompras {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    text-align: center;
     width: 40%;
     margin-right: 10px;
     margin-top: 10px;
@@ -92,14 +125,18 @@ header h1 {
 }
 
 #btnDelItem {
-    
-    font-size: small;
+    background-color: white;
+    font-weight: bold;
+    font-size: xx-small;
     border-radius: 50%;
     margin-left: 10px;
 }
 
 /* Lista dos itens */
 #lista {
+    margin-left: 30px;
+    margin-bottom: 7px;
+    color: white;
     width: 100%;
     list-style: none;
     padding: 5px;
