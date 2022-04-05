@@ -19,5 +19,52 @@ header h1 {
     display: flex;
     border: 1px solid black;
     padding: 20px;
-    text-align: center;
+    flex-direction: row;
+}
+
+#formularioInput {
+    width: 70%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#formularioInput input {
+    width: 90%;
+    padding: 10px;
+}
+
+/* Div Lista de Itens */
+
+#divListaItens {
+    display: flex;
+    flex-direction: row;
+}
+
+#listaItens {
+    margin-right: 10px;
+    width: 60%;
+    border: 1px solid black;
+}
+#divTotalCompras {
+    width: 40%;
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+
+}
+
+#btnDelItem {
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+#lista {
+    width: 100%;
+    border: 1px solid black;
+}
+
+#check {
+    padding: 5px;
+    color: black;
+    background-color: blue;
 }

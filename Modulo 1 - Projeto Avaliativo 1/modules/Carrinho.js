@@ -44,12 +44,15 @@ export class Carrinho {
         this.lista.forEach((item, indice) => {
             const btnDelItem = document.createElement("button")
             btnDelItem.innerHTML = "x"
+            btnDelItem.id = "btnDelItem"
             btnDelItem.onclick = () => this.deletaItem(indice)
 
 
             const li = document.createElement("li")
+            li.id = "lista"
+            li.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
             
-            li.innerHTML = `${item.nome}`
+            li.innerHTML = `<input id="check" type="checkbox" ${item.status ? "checked" : ""} disabled> ${item.nome}`
 
             li.appendChild(btnDelItem)
 
@@ -60,11 +63,25 @@ export class Carrinho {
         console.log(this.lista)
     }
 
-    mudaCheck(){
-        if(this.checkbox.value == true){
-            this.checkbox.value = false 
+    mudaCheck(nome, status, valor, i){
+        if(status == false){
+            console.log("debug"+nome, status, valor, i)
+            var produto = {
+                "nome": nome,
+                "status": "checked",
+                "valor": false
+            }
+            this.lista.splice(i, 1, produto) 
+            this.carregaLista()
         }else{
-            this.checkbox.value = true
+            console.log("debug"+nome, status, valor, i)
+            var produto = {
+                "nome": nome,
+                "status": false,
+                "valor": false
+            }
+            this.lista.splice(i, 1, produto) 
+            this.carregaLista()
         }
     }
 
