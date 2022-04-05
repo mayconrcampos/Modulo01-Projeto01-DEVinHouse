@@ -40,17 +40,26 @@ export class Carrinho {
 
     carregaLista(){
         this.ul.innerHTML = ""
-
         
         this.lista.forEach((item, indice) => {
-            // Aqui tá a merda toda
+            const btnDelItem = document.createElement("button")
+            const li = document.createElement("li")
 
+            li.innerHTML = `<input type="checkbox"> ${item.nome}`
+            btnDelItem.innerHTML = "x"
+
+            btnDelItem.onclick = () => this.deletaItem(indice)
+            li.appendChild(btnDelItem)
+
+            this.ul.appendChild(li)
             
         })
+        console.log(this.lista)
     }
 
     deletaItem(indice){
         this.lista.splice(indice, 1)
+        this.carregaLista()
 
     }
 
@@ -61,5 +70,5 @@ export class Carrinho {
 
 }
 
-var carrinho = new Carrinho()
+
 
