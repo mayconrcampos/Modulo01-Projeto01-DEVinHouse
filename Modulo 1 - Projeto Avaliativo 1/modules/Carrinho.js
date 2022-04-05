@@ -23,6 +23,8 @@ export class Carrinho {
 
         this.btnDelComprados.addEventListener("click", () => {
             this.deletaComprados()
+            console.log(this.lista)
+
             this.salvaDB()
             this.carregaLista()
         })
@@ -68,7 +70,6 @@ export class Carrinho {
     carregaDB(){
         
         var dados = localStorage.getItem("carrinho")
-        console.log(dados)
         dados = JSON.parse(dados)
         if(dados.length > 0){
             for (let index = 0; index < dados.length; index++) {
@@ -178,11 +179,14 @@ export class Carrinho {
     }
 
     deletaComprados(){
-        this.lista.forEach((item, indice) => {
-            if(item.valor != false){
-                this.deletaItem(indice)
+        console.log(this.lista)
+        for(let i = this.lista.length - 1; i >= 0; i--){
+            if(this.lista[i].valor != false){
+                this.deletaItem(i)
             }
-        })
+            
+        }
+
     }
 
     formataValor(valor){
