@@ -78,9 +78,12 @@ export class Carrinho {
         var h2 = document.createElement("h2")
 
         if(this.lista.length == 0){
+            
             this.ul.innerHTML = ""
             h2.innerHTML = "Vazio"
             this.ul.appendChild(h2)
+
+            this.total.innerHTML = "R$ "+this.formataValor(this.totalCompras)
         }else{
             this.ul.innerHTML = ""
             
@@ -93,7 +96,11 @@ export class Carrinho {
                 const btnDelItem = document.createElement("button")
                 btnDelItem.innerHTML = "X"
                 btnDelItem.id = "btnDelItem"
-                btnDelItem.onclick = () => this.deletaItem(indice)
+                btnDelItem.onclick = () => {
+                    this.deletaItem(indice)
+                    this.salvaDB()
+                    this.carregaLista()
+                }
 
 
                 const li = document.createElement("li")
@@ -109,7 +116,7 @@ export class Carrinho {
             
             
             })
-            if(this.totalCompras > 0) {
+            if(this.totalCompras >= 0) {
                 this.total.innerHTML = "R$ "+this.formataValor(this.totalCompras)
             }
         }
@@ -148,8 +155,7 @@ export class Carrinho {
 
     deletaItem(indice){
         this.lista.splice(indice, 1)
-        this.salvaDB()
-        this.carregaLista()
+        
 
     }
 
