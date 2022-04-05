@@ -5,7 +5,6 @@ body {
 
 /* Header e H1 */
 header {
-    border: 1px solid black;
     margin-bottom: 20px;
 }
 
@@ -17,20 +16,57 @@ header h1 {
 
 #formulario {
     display: flex;
-    border: 1px solid black;
     padding: 20px;
     flex-direction: row;
 }
 
 #formularioInput {
-    width: 70%;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 30px;
     padding: 10px;
 }
 
 #formularioInput input {
+    margin: auto;
     width: 90%;
+    text-align: center;
+    padding: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    border-radius: 5px;
+}
+
+#labelinput {
+    margin: auto;
+    width: 90%;
+    text-align: left;
+    padding: 5px;
+}
+
+#formularioBotoes {
+
+    height: 100px;
     padding: 10px;
+    display: flex;
+}
+
+#btnADD {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    padding: 5px;
+    margin-top: 45px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+#btnDelAll {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    padding: 5px;
+    margin-top: 45px;
+    margin-bottom: 5px;
 }
 
 /* Div Lista de Itens */
@@ -38,33 +74,40 @@ header h1 {
 #divListaItens {
     display: flex;
     flex-direction: row;
+    
 }
 
 #listaItens {
-    margin-right: 10px;
-    width: 60%;
-    border: 1px solid black;
+    text-align: left;
+    margin: auto;
+    width: 40%;
+    padding: 20px;
+    margin-top: 10px;
 }
 #divTotalCompras {
     width: 40%;
-    border: 1px solid black;
     margin-right: 10px;
     margin-top: 10px;
 
 }
 
 #btnDelItem {
+    
+    font-size: small;
     border-radius: 50%;
     margin-left: 10px;
 }
 
+/* Lista dos itens */
 #lista {
     width: 100%;
-    border: 1px solid black;
+    list-style: none;
+    padding: 5px;
+    cursor: pointer;
 }
 
 #check {
-    padding: 5px;
+    padding: 10px;
     color: black;
-    background-color: blue;
+    
 }
