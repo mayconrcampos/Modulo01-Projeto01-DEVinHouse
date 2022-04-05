@@ -43,20 +43,29 @@ export class Carrinho {
         
         this.lista.forEach((item, indice) => {
             const btnDelItem = document.createElement("button")
-            const li = document.createElement("li")
-
-            li.innerHTML = `<input type="checkbox"> ${item.nome}`
-            
             btnDelItem.innerHTML = "x"
-
             btnDelItem.onclick = () => this.deletaItem(indice)
+
+
+            const li = document.createElement("li")
+            
+            li.innerHTML = `${item.nome}`
 
             li.appendChild(btnDelItem)
 
             this.ul.appendChild(li)
             
+            
         })
         console.log(this.lista)
+    }
+
+    mudaCheck(){
+        if(this.checkbox.value == true){
+            this.checkbox.value = false 
+        }else{
+            this.checkbox.value = true
+        }
     }
 
     deletaItem(indice){
