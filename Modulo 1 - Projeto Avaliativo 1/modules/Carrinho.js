@@ -83,7 +83,7 @@ export class Carrinho {
             h2.innerHTML = "Vazio"
             this.ul.appendChild(h2)
 
-            this.total.innerHTML = "R$ "+this.formataValor(this.totalCompras)
+            this.total.innerHTML = this.formataValor(this.totalCompras)
         }else{
             this.ul.innerHTML = ""
             
@@ -117,7 +117,7 @@ export class Carrinho {
             
             })
             if(this.totalCompras >= 0) {
-                this.total.innerHTML = "R$ "+this.formataValor(this.totalCompras)
+                this.total.innerHTML = this.formataValor(this.totalCompras)
             }
         }
         
@@ -165,9 +165,9 @@ export class Carrinho {
     }
 
     formataValor(valor){
-        var valorFormatado = valor.toFixed(2)
+        var valorFormatado = valor
 
-        return valorFormatado.toString().replace(".", ",")
+        return valorFormatado.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL', minimumFractionDigits: 2});
     }
 
 }
