@@ -15,6 +15,7 @@ header {
 }
 
 header h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 80%;
     color: white;
     text-align: center;
@@ -30,7 +31,7 @@ header img {
 #formulario {
     display: flex;
     padding: 20px;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 #formularioInput {
@@ -38,20 +39,11 @@ header img {
     flex-direction: column;
     width: 60%;
     margin-left: 30px;
-    padding: 10px;
+    
     
 }
 
-#formularioInput input {
-    
-    margin: auto;
-    width: 70%;
-    text-align: center;
-    padding: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: x-large;
-    border-radius: 5px;
-}
+
 
 #labelinput {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -60,44 +52,52 @@ header img {
     margin-left: 15%;
     width: 90%;
     text-align: left;
-    padding: 5px;
 }
 
 #formularioBotoes {
-    text-align: left;
-    height: 100px;
+    text-align: left;    
+    margin-left: 10%;
+}
+#formularioBotoes input {
+    border: none;
+    margin: auto;
+    width: 60%;
+    text-align: center;
     padding: 10px;
-    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    border-radius: 5px;
 }
 
 #btnADD {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
+    margin-left: 10px;
+    width: 200px;
+    border: none;
     color: white;
     font-weight: bold;
     background-color: #181a8e;
-    padding: 10px;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    margin-right: 10px;
+    padding: 13px;
     border-radius: 8px;
 }
 
 #btnDelAll {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
+    width: 200px;
+    border: none;
     color: white;
     font-weight: bold;
     background-color: #181a8e;
-    padding: 10px;
-    margin-top: 40px;
-    margin-bottom: 15px;
+    padding: 13px;
     border-radius: 8px;
 }
 
 /* Div Lista de Itens */
 
 #divListaItens {
+    margin-left: 10%;
     display: flex;
     flex-direction: row;
     
