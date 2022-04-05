@@ -10,12 +10,22 @@ export class Carrinho {
         this.btnADD = document.getElementById("btnADD")
         this.nome = document.getElementById("nome")
         this.btnDelItem = document.getElementById("btnDelItem")
+        this.btnDelComprados = document.createElement("button")
+        this.btnDelComprados.innerHTML = "Excluir Assinalados"
+        this.btnDelComprados.id = "btnDelComprados"
+
         this.btnDelAll = document.getElementById("btnDelAll")
         this.checkbox = document.createElement("input")
         this.checkbox.type = "checkbox"
         this.body = document.body
 
         this.body.onload = this.carregaDB()
+
+        this.btnDelComprados.addEventListener("click", () => {
+            this.deletaComprados()
+            this.salvaDB()
+            this.carregaLista()
+        })
 
         this.btnADD.addEventListener("click", () => {
             if(this.nome.value.length > 0){
@@ -102,7 +112,6 @@ export class Carrinho {
                     this.carregaLista()
                 }
 
-
                 const li = document.createElement("li")
                 li.id = "lista"
 
@@ -116,7 +125,11 @@ export class Carrinho {
             
             
             })
-            if(this.totalCompras >= 0) {
+
+            if(this.totalCompras > 0) {
+                this.ul.appendChild(this.btnDelComprados)
+                this.total.innerHTML = this.formataValor(this.totalCompras)
+            }else{
                 this.total.innerHTML = this.formataValor(this.totalCompras)
             }
         }
@@ -162,6 +175,14 @@ export class Carrinho {
     deletaTudo(){
         this.lista = []
         this.carregaLista()
+    }
+
+    deletaComprados(){
+        this.lista.forEach((item, indice) => {
+            if(item.valor != false){
+                this.deletaItem(indice)
+            }
+        })
     }
 
     formataValor(valor){

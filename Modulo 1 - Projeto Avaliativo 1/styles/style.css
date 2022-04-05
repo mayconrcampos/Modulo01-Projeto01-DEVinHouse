@@ -114,6 +114,15 @@ header img {
     margin-top: 10px;
 
 }
+
+#btnDelComprados {
+    color: white;
+    background-color: #181a8e;
+    border: 1px groove;
+    border-radius: 8px;
+    padding: 5px;
+    
+}
 #divTotalCompras {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
