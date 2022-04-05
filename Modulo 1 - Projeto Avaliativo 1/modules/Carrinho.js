@@ -37,6 +37,8 @@ export class Carrinho {
 
         })
 
+        this.carregaLista()
+
     }
 
     addItem(item){
@@ -89,7 +91,7 @@ export class Carrinho {
             this.lista.forEach((item, indice) => {
                 this.totalCompras += item.valor
                 const btnDelItem = document.createElement("button")
-                btnDelItem.innerHTML = "x"
+                btnDelItem.innerHTML = "X"
                 btnDelItem.id = "btnDelItem"
                 btnDelItem.onclick = () => this.deletaItem(indice)
 
@@ -97,7 +99,7 @@ export class Carrinho {
                 const li = document.createElement("li")
                 li.id = "lista"
 
-                li.onclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
+                li.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
 
                 li.innerHTML = `<input id="check" type="checkbox" ${item.status ? "checked" : ""} disabled> ${item.nome}`
 
@@ -108,7 +110,7 @@ export class Carrinho {
             
             })
             if(this.totalCompras > 0) {
-                this.total.innerHTML = "R$ "+this.totalCompras.toFixed(2)
+                this.total.innerHTML = "R$ "+this.formataValor(this.totalCompras)
             }
         }
         
@@ -154,6 +156,12 @@ export class Carrinho {
     deletaTudo(){
         this.lista = []
         this.carregaLista()
+    }
+
+    formataValor(valor){
+        var valorFormatado = valor.toFixed(2)
+
+        return valorFormatado.toString().replace(".", ",")
     }
 
 }
