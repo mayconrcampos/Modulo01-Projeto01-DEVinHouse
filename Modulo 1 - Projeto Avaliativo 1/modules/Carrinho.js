@@ -15,8 +15,7 @@ export class Carrinho {
         this.btnDelComprados.id = "btnDelComprados"
 
         this.btnDelAll = document.getElementById("btnDelAll")
-        this.checkbox = document.createElement("input")
-        this.checkbox.type = "checkbox"
+        
         this.body = document.body
 
         this.body.onload = this.carregaDB()
@@ -138,7 +137,6 @@ export class Carrinho {
 
     mudaCheck(nome, status, valor, i){
         if(status == false){
-            console.log("debug"+nome, status, valor, i)
             valor = window.prompt("Digite o valor (R$)")
             if(!isNaN(valor) && valor > 0){
                 var produto = {
@@ -178,7 +176,6 @@ export class Carrinho {
     }
 
     deletaComprados(){
-        console.log(this.lista)
         for(let i = this.lista.length - 1; i >= 0; i--){
             if(this.lista[i].valor != false){
                 this.deletaItem(i)

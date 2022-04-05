@@ -154,7 +154,9 @@ header img {
 }
 
 #check {
-    padding: 10px;
-    color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    margin-right: 20px;
     
 }
