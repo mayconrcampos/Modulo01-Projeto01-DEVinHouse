@@ -68,7 +68,6 @@ export class Carrinho {
     }
 
     carregaDB(){
-        
         var dados = localStorage.getItem("carrinho")
         dados = JSON.parse(dados)
         if(dados.length > 0){
