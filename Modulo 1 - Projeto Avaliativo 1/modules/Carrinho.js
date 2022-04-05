@@ -46,9 +46,11 @@ export class Carrinho {
             const li = document.createElement("li")
 
             li.innerHTML = `<input type="checkbox"> ${item.nome}`
+            
             btnDelItem.innerHTML = "x"
 
             btnDelItem.onclick = () => this.deletaItem(indice)
+
             li.appendChild(btnDelItem)
 
             this.ul.appendChild(li)
