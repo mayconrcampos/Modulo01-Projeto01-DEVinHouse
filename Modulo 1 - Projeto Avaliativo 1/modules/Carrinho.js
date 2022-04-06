@@ -10,6 +10,7 @@ export class Carrinho {
         this.ul = document.getElementById("listaItens")
         this.btnADD = document.getElementById("btnADD")
         this.btnDelAll = document.getElementById("btnDelAll")
+        this.logo = document.getElementById("logo")
         this.nome = document.getElementById("nome")
         this.btnDelItem = document.getElementById("btnDelItem")
 
@@ -41,6 +42,8 @@ export class Carrinho {
                 this.btnDelAll.style.width = "95px"
                 this.btnDelAll.style.fontSize = "xx-small"
                 this.btnDelAll.style.height = "50px"
+                this.logo.style.width = "150px"
+                this.logo.style.height = "50px"
             }else{
                 this.divTotalCompras.style.fontSize = "xx-large"
                 this.divTotalCompras.style.marginTop = "10px"
@@ -48,6 +51,8 @@ export class Carrinho {
                 this.btnADD.style.fontSize = "large"
                 this.btnDelAll.style.width = "200px"
                 this.btnDelAll.style.fontSize = "large"
+                this.logo.style.width = "300px"
+                this.logo.style.height = "80px"
             }
         }
 
