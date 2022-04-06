@@ -6,6 +6,7 @@ export class Carrinho {
         this.totalCompras = 0
         this.lista = []
         this.total = document.getElementById("total")
+        this.divTotalCompras = document.getElementById("divTotalCompras")
         this.ul = document.getElementById("listaItens")
         this.btnADD = document.getElementById("btnADD")
         this.btnDelAll = document.getElementById("btnDelAll")
@@ -20,10 +21,25 @@ export class Carrinho {
         // atribuindo document.body a this.body
         this.body = document.body
 
-        // Criação de Eventos em geral
+        /**
+         * 
+         *  Criação de Eventos em geral
+         * 
+         */
 
         // Carrega dados da localstorage ao carregar a página
         this.body.onload = this.carregaDB()
+
+        // Evento para capturar resize de window para ajustar tamanho de texto total de compras.
+        window.onresize = (e) => {
+            if(e.target.innerWidth <= 960){
+                this.divTotalCompras.style.fontSize = "smaller"
+                this.divTotalCompras.style.marginTop = "100px"
+            }else{
+                this.divTotalCompras.style.fontSize = "xx-large"
+                this.divTotalCompras.style.marginTop = "10px"
+            }
+        }
 
         // Evento para ouvir click e deletar todos os itens já assinalados
         this.btnDelComprados.addEventListener("click", () => {
