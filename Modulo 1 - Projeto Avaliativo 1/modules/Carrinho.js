@@ -123,7 +123,7 @@ export class Carrinho {
                 const linha = document.createElement("div")
                 linha.id = "linha"
                 
-                // Criação da Checkbox
+                // 1º Elemento - Criação da Checkbox
                 const checkbox = document.createElement("input")
                 checkbox.type = "checkbox"
                 checkbox.id = "check"
@@ -137,7 +137,7 @@ export class Carrinho {
                 // Inserção da checkbox dentro de divcheckbox
                 linha.appendChild(checkbox)
 
-                // Criação de uma tag div pra comportar o conteudo de item.nome
+                // 2º elemento - Criação de uma tag div pra comportar o conteudo de item.nome
                 const divItemNome = document.createElement("div")
                 divItemNome.id = "divItemNome"
                 divItemNome.innerHTML = `${item.nome}`
@@ -149,7 +149,7 @@ export class Carrinho {
                 linha.appendChild(divItemNome)
 
 
-                // Criação do button deleta item
+                // 3º elemento - Criação do button deleta item
                 const btnDelItem = document.createElement("button")
                 btnDelItem.innerHTML = "x"
                 btnDelItem.id = "btnDelItem"
