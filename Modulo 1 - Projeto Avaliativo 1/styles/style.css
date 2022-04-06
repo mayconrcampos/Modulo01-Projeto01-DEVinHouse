@@ -116,6 +116,7 @@ header img {
 }
 
 #btnDelComprados {
+    margin-top: 15px;
     color: white;
     background-color: #181a8e;
     border: 1px groove;
@@ -135,10 +136,12 @@ header img {
 
 #btnDelItem {
     background-color: white;
-    font-weight: bold;
-    font-size: xx-small;
-    padding: 5px;
-    border-radius: 45%;
+    border: 2px dashed white;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    font-size: small;
+    border-radius: 50%;
     margin-left: 10px;
 }
 
@@ -159,4 +162,13 @@ header img {
     border-radius: 8px;
     margin-right: 20px;
     
+}
+
+#linha {
+    display: flex;
+    margin: 10px;
+}
+
+#divItemNome {
+    padding: 5px;
 }

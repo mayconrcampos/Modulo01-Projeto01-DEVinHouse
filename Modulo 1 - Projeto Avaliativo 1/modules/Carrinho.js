@@ -2,24 +2,27 @@ export class Carrinho {
     nome 
     totalCompras
     constructor(){
+    
         this.totalCompras = 0
         this.lista = []
         this.total = document.getElementById("total")
         this.ul = document.getElementById("listaItens")
-        this.li = document.createElement("li")
         this.btnADD = document.getElementById("btnADD")
         this.nome = document.getElementById("nome")
         this.btnDelItem = document.getElementById("btnDelItem")
         this.btnDelComprados = document.createElement("button")
         this.btnDelComprados.innerHTML = "Excluir Assinalados"
         this.btnDelComprados.id = "btnDelComprados"
-
         this.btnDelAll = document.getElementById("btnDelAll")
         
         this.body = document.body
 
+        // Criação de Eventos em geral
+
+        // CarregaDB da localstorage ao carregar a página
         this.body.onload = this.carregaDB()
 
+        // Evento para ouvir click e deletar todos os itens já assinalados
         this.btnDelComprados.addEventListener("click", () => {
             this.deletaComprados()
             console.log(this.lista)
@@ -28,6 +31,7 @@ export class Carrinho {
             this.carregaLista()
         })
 
+        // Evento para ouvir click do botão Inserir
         this.btnADD.addEventListener("click", () => {
             if(this.nome.value.length > 0){
                 var produto = {
@@ -42,15 +46,21 @@ export class Carrinho {
             }
         })
 
+        // Evento de click do botão para deletar todos os itens.
         this.btnDelAll.addEventListener("click", () => {
             this.deletaTudo()
             this.salvaDB()
-
         })
 
+        // Chamada do método carrega lista ao abrir o site.
         this.carregaLista()
 
     }
+
+
+    /**
+     * Métodos da classe Carrinho
+     */
 
     addItem(item){
         this.lista.push(item)
@@ -102,25 +112,56 @@ export class Carrinho {
             
             this.lista.forEach((item, indice) => {
                 this.totalCompras += item.valor
+
+                
+
+                // Criação da linha
+                const linha = document.createElement("div")
+                linha.id = "linha"
+                
+                // Criação da Checkbox
+                const checkbox = document.createElement("input")
+                checkbox.type = "checkbox"
+                checkbox.id = "check"
+                checkbox.checked = item.status ? "checked" : ""
+
+                checkbox.onclick = () => {
+                    console.log("Nada?")
+                    this.mudaCheck(item.nome, item.status, item.valor, indice)
+                    
+                }
+
+                // Inserção da checkbox dentro de divcheckbox
+                linha.appendChild(checkbox)
+
+                // Criação de uma tag div pra comportar o conteudo de item.nome
+                const divItemNome = document.createElement("div")
+                divItemNome.id = "divItemNome"
+                divItemNome.innerHTML = `${item.nome}`
+
+                // Criação do evento double Click para itemNome
+                divItemNome.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
+
+                // Inserção da divItemNome dentro de linha
+                linha.appendChild(divItemNome)
+
+
+                // Criação do button deleta item
                 const btnDelItem = document.createElement("button")
-                btnDelItem.innerHTML = "X"
+                btnDelItem.innerHTML = "x"
                 btnDelItem.id = "btnDelItem"
+
                 btnDelItem.onclick = () => {
                     this.deletaItem(indice)
                     this.salvaDB()
                     this.carregaLista()
                 }
+                
+                // Inserção do button dentro de li
+                linha.appendChild(btnDelItem)
 
-                const li = document.createElement("li")
-                li.id = "lista"
-
-                li.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
-
-                li.innerHTML = `<input id="check" type="checkbox" ${item.status ? "checked" : ""} disabled> ${item.nome}`
-
-                li.appendChild(btnDelItem)
-
-                this.ul.appendChild(li)
+                // Inserção de li dentro de ul
+                this.ul.appendChild(linha)
             
             
             })
