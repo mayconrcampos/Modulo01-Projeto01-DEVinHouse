@@ -34,6 +34,8 @@ requisitos:</p>
     foram realizados), e deve ser carregada sempre que a página for reaberta.</li>
 </ol>
 
+<h1 align="center">Print do Projeto Pronto</h1>
+
 <img align="center" src="./projeto01.png">
 
 <h3 align="left">Connect with me:</h3>
