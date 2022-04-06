@@ -99,13 +99,15 @@ export class Carrinho {
         this.totalCompras = 0
         var h2 = document.createElement("h2")
 
+        // Se array de itens estiver vazio
         if(this.lista.length == 0){
-            
             this.ul.innerHTML = ""
             h2.innerHTML = "Vazio"
             this.ul.appendChild(h2)
 
             this.total.innerHTML = this.formataValor(this.totalCompras)
+
+        // Se array de itens não estiver vazio
         }else{
             this.ul.innerHTML = ""
             
@@ -113,10 +115,9 @@ export class Carrinho {
 
             this.ul.appendChild(h2)
             
+            // Geração da lista de itens na tela
             this.lista.forEach((item, indice) => {
                 this.totalCompras += item.valor
-
-                
 
                 // Criação da linha
                 const linha = document.createElement("div")
@@ -167,10 +168,12 @@ export class Carrinho {
             
             
             })
-
+            // Se total de compras for maior que zero, é inserido o botão deleta itens assinalados.
             if(this.totalCompras > 0) {
                 this.ul.appendChild(this.btnDelComprados)
                 this.total.innerHTML = this.formataValor(this.totalCompras)
+            
+            // Senão apenas imprime total R$0,00 na tela.
             }else{
                 this.total.innerHTML = this.formataValor(this.totalCompras)
             }
@@ -180,6 +183,7 @@ export class Carrinho {
 
     // Modifica valor de item = status e valor
     mudaCheck(nome, status, valor, i){
+        // Se status for igual false (explícito)
         if(status == false){
             valor = window.prompt("Digite o valor (R$)")
        
@@ -189,6 +193,7 @@ export class Carrinho {
                     "status": "checked",
                     "valor": Number(valor)
                 }
+                // Muda-se valores do item.
                 this.lista.splice(i, 1, produto)
                 this.salvaDB()
                 this.carregaLista()
@@ -197,12 +202,13 @@ export class Carrinho {
             }
             
         }else{
-            console.log("debug"+nome, status, valor, i)
+            // Se status for diferente de false, é setado false para status e valor.
             var produto = {
                 "nome": nome,
                 "status": false,
                 "valor": false
             }
+            // Muda-se valores do item
             this.lista.splice(i, 1, produto) 
             this.salvaDB()
             this.carregaLista()
@@ -222,6 +228,7 @@ export class Carrinho {
 
     // Deleta somente itens do array de itens cujos valores são diferentes de false
     deletaComprados(){
+        // Laço for iterando lista de itens do último para primeiro elemento.
         for(let i = this.lista.length - 1; i >= 0; i--){
             if(this.lista[i].valor != false){
                 this.deletaItem(i)
