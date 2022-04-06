@@ -126,7 +126,6 @@ export class Carrinho {
                 checkbox.checked = item.status ? "checked" : ""
 
                 checkbox.onclick = () => {
-                    console.log("Nada?")
                     this.mudaCheck(item.nome, item.status, item.valor, indice)
                     
                 }
