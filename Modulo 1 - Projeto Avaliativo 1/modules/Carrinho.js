@@ -25,8 +25,6 @@ export class Carrinho {
         // Evento para ouvir click e deletar todos os itens já assinalados
         this.btnDelComprados.addEventListener("click", () => {
             this.deletaComprados()
-            console.log(this.lista)
-
             this.salvaDB()
             this.carregaLista()
         })
@@ -175,9 +173,11 @@ export class Carrinho {
         
     }
 
+
     mudaCheck(nome, status, valor, i){
         if(status == false){
             valor = window.prompt("Digite o valor (R$)")
+       
             if(!isNaN(valor) && valor > 0){
                 var produto = {
                     "nome": nome,

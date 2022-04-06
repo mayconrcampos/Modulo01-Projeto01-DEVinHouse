@@ -131,6 +131,8 @@ header img {
     padding: 5px;
     
 }
+
+/* Total das compras em R$ */
 #divTotalCompras {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
@@ -141,16 +143,7 @@ header img {
 
 }
 
-#btnDelItem {
-    background-color: white;
-    border: 2px dashed white;
-    width: 20px;
-    height: 20px;
-    margin-top: 5px;
-    font-size: small;
-    border-radius: 50%;
-    margin-left: 10px;
-}
+
 
 /* Lista dos itens */
 #lista {
@@ -163,6 +156,15 @@ header img {
     cursor: pointer;
 }
 
+/* Itens que vão dentro de cada linha da lista */
+
+/* Aqui é a linha */
+#linha {
+    display: flex;
+    margin: 10px;
+}
+
+/* Aqui é o checkbox */
 #check {
     width: 20px;
     height: 20px;
@@ -171,13 +173,21 @@ header img {
     
 }
 
-#linha {
-    display: flex;
-    margin: 10px;
-}
-
+/* Aqui o nome do item */
 #divItemNome {
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
+}
+
+/* Aqui o botão que deleta item */
+#btnDelItem {
+    background-color: white;
+    border: 2px dashed white;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    font-size: small;
+    border-radius: 50%;
+    margin-left: 10px;
 }
