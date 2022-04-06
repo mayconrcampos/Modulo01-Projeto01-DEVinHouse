@@ -2,24 +2,27 @@ export class Carrinho {
     nome 
     totalCompras
     constructor(){
-    
+        // Pegando elementos existentes na DOM
         this.totalCompras = 0
         this.lista = []
         this.total = document.getElementById("total")
         this.ul = document.getElementById("listaItens")
         this.btnADD = document.getElementById("btnADD")
+        this.btnDelAll = document.getElementById("btnDelAll")
         this.nome = document.getElementById("nome")
         this.btnDelItem = document.getElementById("btnDelItem")
+
+        // Criando elemento button
         this.btnDelComprados = document.createElement("button")
         this.btnDelComprados.innerHTML = "Excluir Assinalados"
         this.btnDelComprados.id = "btnDelComprados"
-        this.btnDelAll = document.getElementById("btnDelAll")
         
+        // atribuindo document.body a this.body
         this.body = document.body
 
         // Criação de Eventos em geral
 
-        // CarregaDB da localstorage ao carregar a página
+        // Carrega dados da localstorage ao carregar a página
         this.body.onload = this.carregaDB()
 
         // Evento para ouvir click e deletar todos os itens já assinalados
@@ -36,7 +39,6 @@ export class Carrinho {
                     "nome": this.nome.value,
                     "status": false,
                     "valor": false
-
                 }
                 this.addItem(produto)
                 this.nome.value = ""
@@ -44,21 +46,22 @@ export class Carrinho {
             }
         })
 
-        // Evento de click do botão para deletar todos os itens.
+        // Evento de click para deletar todos os itens.
         this.btnDelAll.addEventListener("click", () => {
             this.deletaTudo()
             this.salvaDB()
         })
-
-        // Chamada do método carrega lista ao abrir o site.
-        this.carregaLista()
-
     }
 
 
     /**
+     * 
      * Métodos da classe Carrinho
+     * 
      */
+
+
+    // Adiciona Item no Array de itens
 
     addItem(item){
         this.lista.push(item)
@@ -66,6 +69,7 @@ export class Carrinho {
         this.carregaLista()
     }
 
+    // Salva array na localStorage
     salvaDB(){
         if(this.lista.length >= 0){
             var dados = JSON.stringify(this.lista)
@@ -74,6 +78,7 @@ export class Carrinho {
         
     }
 
+    // Carrega conteudo da localStorage para array de itens
     carregaDB(){
         var dados = localStorage.getItem("carrinho")
         dados = JSON.parse(dados)
@@ -89,7 +94,7 @@ export class Carrinho {
         }
     }
    
-
+    // Carrega lista de itens na tela
     carregaLista(){
         this.totalCompras = 0
         var h2 = document.createElement("h2")
@@ -173,7 +178,7 @@ export class Carrinho {
         
     }
 
-
+    // Modifica valor de item = status e valor
     mudaCheck(nome, status, valor, i){
         if(status == false){
             valor = window.prompt("Digite o valor (R$)")
@@ -204,34 +209,30 @@ export class Carrinho {
         }
     }
 
+    // deleta item de array de itens
     deletaItem(indice){
         this.lista.splice(indice, 1)
-        
-
     }
 
+    // Esvazia array de itens
     deletaTudo(){
         this.lista = []
         this.carregaLista()
     }
 
+    // Deleta somente itens do array de itens cujos valores são diferentes de false
     deletaComprados(){
         for(let i = this.lista.length - 1; i >= 0; i--){
             if(this.lista[i].valor != false){
                 this.deletaItem(i)
             }
-            
         }
-
     }
 
+    // Formata string para valor monetário
     formataValor(valor){
         var valorFormatado = valor
 
         return valorFormatado.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL', minimumFractionDigits: 2});
     }
-
 }
-
-
-
