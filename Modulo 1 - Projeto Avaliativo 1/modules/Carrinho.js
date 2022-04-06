@@ -35,9 +35,19 @@ export class Carrinho {
             if(e.target.innerWidth <= 960){
                 this.divTotalCompras.style.fontSize = "smaller"
                 this.divTotalCompras.style.marginTop = "100px"
+                this.btnADD.style.width = "75px"
+                this.btnADD.style.fontSize = "small"
+                this.btnADD.style.height = "50px"
+                this.btnDelAll.style.width = "95px"
+                this.btnDelAll.style.fontSize = "xx-small"
+                this.btnDelAll.style.height = "50px"
             }else{
                 this.divTotalCompras.style.fontSize = "xx-large"
                 this.divTotalCompras.style.marginTop = "10px"
+                this.btnADD.style.width = "150px"
+                this.btnADD.style.fontSize = "large"
+                this.btnDelAll.style.width = "200px"
+                this.btnDelAll.style.fontSize = "large"
             }
         }
 

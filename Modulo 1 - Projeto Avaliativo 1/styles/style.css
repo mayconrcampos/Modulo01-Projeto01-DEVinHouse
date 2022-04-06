@@ -34,9 +34,9 @@ header img {
 /* Formulário */
 
 #formulario {
-    display: flex;
-    padding: 20px;
-    flex-direction: column;
+    display: flexbox;
+    align-items: flex-start;
+    padding: 20px;  
 }
 
 #formularioInput {
@@ -44,8 +44,6 @@ header img {
     flex-direction: column;
     width: 60%;
     margin-left: 30px;
-    
-    
 }
 
 
@@ -57,18 +55,24 @@ header img {
     margin-left: 15%;
     width: 90%;
     text-align: left;
+
 }
 
 #formularioBotoes {
+    display: flexbox;
+    align-items: center;
+    width: 80%;
     text-align: left;    
     margin-left: 10%;
+    padding: 0;
+
 }
 #formularioBotoes input {
-    border: none;
-    margin: auto;
-    width: 50%;
+    border: 3px solid #181a8e;
+    width: 70%;
+    height: 40px;
     text-align: center;
-    padding: 10px;
+    padding-bottom: 2px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: x-large;
     border-radius: 5px;
@@ -79,23 +83,24 @@ header img {
     font-size: large;
     margin-left: 10px;
     width: 150px;
-    border: 1px groove;
+    height: 50px;
     color: white;
     font-weight: bold;
     background-color: #181a8e;
-    padding: 13px;
+    padding: 5px;
     border-radius: 8px;
+    
 }
 
 #btnDelAll {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
     width: 200px;
-    border: 1px groove;
+    height: 50px;
     color: white;
     font-weight: bold;
     background-color: #181a8e;
-    padding: 13px;
+    padding: 5px;
     border-radius: 8px;
 }
 
