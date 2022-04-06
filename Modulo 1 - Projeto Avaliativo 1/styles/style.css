@@ -170,5 +170,6 @@ header img {
 }
 
 #divItemNome {
+    cursor: pointer;
     padding: 5px;
 }
