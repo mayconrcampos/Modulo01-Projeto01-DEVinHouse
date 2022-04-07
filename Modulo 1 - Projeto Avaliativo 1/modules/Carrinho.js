@@ -160,24 +160,32 @@ export class Carrinho {
                 const linha = document.createElement("div")
                 linha.id = "linha"
                 
-                // 1º Elemento - Criação da Checkbox
-                const checkbox = document.createElement("input")
-                checkbox.type = "checkbox"
-                checkbox.id = "check"
-                checkbox.checked = item.status ? "checked" : ""
+           
+                // 1º Elemento -  Criando uma div pra substituir checkbox
+                const divDoCheckBox = document.createElement("div")
 
-                checkbox.onclick = () => {
+                divDoCheckBox.id = "divDoCheckBox"
+
+                divDoCheckBox.onclick = () => {
                     this.mudaCheck(item.nome, item.status, item.valor, indice)
-                    
                 }
 
+                // Criando imagem pra substituir a checkbox
+                const imgCheck = document.createElement("img")
+                imgCheck.id = "imgCheck"
+
+                imgCheck.src = item.status ? "./img/checked.png" : "./img/notchecked.png"
+
+                divDoCheckBox.appendChild(imgCheck)
+
                 // Inserção da checkbox dentro de divcheckbox
-                linha.appendChild(checkbox)
+                linha.appendChild(divDoCheckBox)
 
                 // 2º elemento - Criação de uma tag div pra comportar o conteudo de item.nome
                 const divItemNome = document.createElement("div")
                 divItemNome.id = "divItemNome"
                 divItemNome.innerHTML = `${item.nome}`
+                divItemNome.style.textDecoration = item.status ? "line-through" : ""
 
                 // Criação do evento double Click para itemNome
                 divItemNome.ondblclick = () => this.mudaCheck(item.nome, item.status, item.valor, indice)
