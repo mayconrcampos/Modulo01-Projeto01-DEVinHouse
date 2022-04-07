@@ -166,23 +166,39 @@ header h1 {
 /* Aqui é a linha */
 #linha {
     display: flex;
+    flex-direction: row;
     margin: 10px;
+
 }
 
 /* Aqui é o checkbox */
-#check {
-    width: 20px;
-    height: 20px;
-    border-radius: 8px;
+
+#divDoCheckBox {
+    background-color: white;
+    width: 26px;
+    height: 25px;
+    border-radius: 5px;
     margin-right: 20px;
+    padding: 0;
+    
+
+}
+#imgCheck {
+    margin: 0;
+    height: 26px;
+    width: 26px;
+    
     
 }
+
+
 
 /* Aqui o nome do item */
 #divItemNome {
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
+    margin-top: 3px;
 }
 
 /* Aqui o botão que deleta item */
@@ -191,7 +207,7 @@ header h1 {
     border: 2px dashed white;
     width: 20px;
     height: 20px;
-    margin-top: 1px;
+    margin-top: 4px;
     font-size: x-small;
     font-weight: bold;
     border-radius: 50%;
