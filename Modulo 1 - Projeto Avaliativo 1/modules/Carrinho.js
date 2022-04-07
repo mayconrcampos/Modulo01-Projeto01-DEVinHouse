@@ -235,7 +235,7 @@ export class Carrinho {
             if(!isNaN(valor) && valor > 0){
                 var produto = {
                     "nome": nome,
-                    "status": "checked",
+                    "status": true,
                     "valor": Number(valor)
                 }
                 // Muda-se valores do item.
