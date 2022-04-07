@@ -59,7 +59,8 @@ header h1 {
 }
 
 #formularioBotoes {
-    display: flexbox;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
     width: 80%;
     text-align: left;    
