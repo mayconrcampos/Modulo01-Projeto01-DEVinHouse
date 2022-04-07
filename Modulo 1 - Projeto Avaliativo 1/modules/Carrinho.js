@@ -82,6 +82,12 @@ export class Carrinho {
             this.deletaTudo()
             this.salvaDB()
         })
+
+        /**
+         * A chamada deste método só vai servir pra quando carregar a página com localStorage vazio.
+         * Ele irá inicializar a lista com o texto escrito: "Vazio" e o total de Compras: "R$ 0,00"
+         */
+        this.carregaLista()
     }
 
 
