@@ -14,10 +14,16 @@ export class Carrinho {
         this.nome = document.getElementById("nome")
         this.btnDelItem = document.getElementById("btnDelItem")
 
+        // Adicionando titles aos botões
+        this.btnADD.title = "Clique aqui para adicionar Item"
+        this.btnDelAll.title = "Clique aqui para esvaziar a lista de compras"
+        
+
         // Criando elemento button
         this.btnDelComprados = document.createElement("button")
         this.btnDelComprados.innerHTML = "Excluir Assinalados"
         this.btnDelComprados.id = "btnDelComprados"
+        this.btnDelComprados.title = "Deletar somente itens assinalados"
         
         // atribuindo document.body a this.body
         this.body = document.body
@@ -58,9 +64,12 @@ export class Carrinho {
 
         // Evento para ouvir click e deletar todos os itens já assinalados
         this.btnDelComprados.addEventListener("click", () => {
-            this.deletaComprados()
-            this.salvaDB()
-            this.carregaLista()
+            let confirma = confirm("Deseja mesmo excluir os assinalados?")
+            if(confirma){
+                this.deletaComprados()
+                this.salvaDB()
+                this.carregaLista()
+            }
         })
 
         // Evento para ouvir click do botão Inserir
@@ -79,8 +88,11 @@ export class Carrinho {
 
         // Evento de click para deletar todos os itens.
         this.btnDelAll.addEventListener("click", () => {
-            this.deletaTudo()
-            this.salvaDB()
+            let confirma = confirm("Deseja mesmo excluir todos os itens da lista?")
+            if(confirma){
+                this.deletaTudo()
+                this.salvaDB()
+            }
         })
 
         /**
@@ -165,6 +177,7 @@ export class Carrinho {
                 const divDoCheckBox = document.createElement("div")
 
                 divDoCheckBox.id = "divDoCheckBox"
+                divDoCheckBox.title = "Clique para colocar o preço e assinalar item"
 
                 divDoCheckBox.onclick = () => {
                     this.mudaCheck(item.nome, item.status, item.valor, indice)
@@ -185,6 +198,7 @@ export class Carrinho {
                 const divItemNome = document.createElement("div")
                 divItemNome.id = "divItemNome"
                 divItemNome.innerHTML = `${item.nome}`
+                divItemNome.title = `Clique duas vezes para colocar o preço e assinalar item.`
                 divItemNome.style.textDecoration = item.status ? "line-through" : ""
 
                 // Criação do evento double Click para itemNome
@@ -198,11 +212,16 @@ export class Carrinho {
                 const btnDelItem = document.createElement("button")
                 btnDelItem.innerHTML = "x"
                 btnDelItem.id = "btnDelItem"
+                btnDelItem.title = `Deletar ${item.nome}`
 
                 btnDelItem.onclick = () => {
-                    this.deletaItem(indice)
-                    this.salvaDB()
-                    this.carregaLista()
+                    let confirma = confirm(`Deseja deletar ${item.nome}`)
+                    if(confirma){
+                        this.deletaItem(indice)
+                        this.salvaDB()
+                        this.carregaLista()
+                    }
+                    
                 }
                 
                 // Inserção do button dentro de li
