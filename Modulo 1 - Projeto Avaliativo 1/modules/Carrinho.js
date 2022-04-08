@@ -215,7 +215,7 @@ export class Carrinho {
                 btnDelItem.title = `Deletar ${item.nome}`
 
                 btnDelItem.onclick = () => {
-                    let confirma = confirm(`Deseja deletar ${item.nome}`)
+                    let confirma = confirm(`Deseja mesmo deletar ${item.nome} da lista?`)
                     if(confirma){
                         this.deletaItem(indice)
                         this.salvaDB()
